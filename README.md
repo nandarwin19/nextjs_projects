@@ -70,6 +70,25 @@ npx prisma init
     - Create Prisma Model
 
 ```sh
+//change to the .env file and schema.prisma
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+//already changed
+// schema.prisma 
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//.env
+DATABASE_URL="file:./dev.db"
+
+```
+
+```sh
 npx prisma migrate dev
 ```
 
