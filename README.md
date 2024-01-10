@@ -70,7 +70,7 @@ npx prisma init
     - Create Prisma Model
 
 ```sh
-//change.env file and schema.prisma
+//change .env file and schema.prisma
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
