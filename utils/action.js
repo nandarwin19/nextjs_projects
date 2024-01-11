@@ -15,8 +15,10 @@ export const generateChatResponse = async (chatMessage) => {
       { role: "system", content: "you are a helpful assistant" },
       { role: "user", content: chatMessage },
     ],
+
     // Specify the GPT model to use
     model: "gpt-3.5-turbo",
+
     // Set temperature to 0 for deterministic responses
     temperature: 0,
   });
@@ -24,5 +26,6 @@ export const generateChatResponse = async (chatMessage) => {
   // Log the generated response and the entire API response
   console.log(response.choices[0].message);
   console.log(response);
+
   return "awesome";
 };
