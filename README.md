@@ -1,9 +1,11 @@
+Todo: database
+
 - Clerk for authentication
 - Custom Auth Page
 - Segment names (eg: [[...sign-in]])
 - React Query Info
   - useQuery
-  -
+  - useMutation
 
 ## Note
 
@@ -71,6 +73,6 @@ import { useClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 
-export default function Providers({ children }) {
+export default function Providers({ children })
 
 ```

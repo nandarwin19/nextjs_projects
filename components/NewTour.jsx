@@ -1,8 +1,25 @@
 "use client";
 import React from "react";
 import TourInfo from "./TourInfo";
+import { useMutation } from "@tanstack/react-query";
+import { generateTourResponse } from "@/utils/action";
+import toast from "react-hot-toast";
 
 const NewTour = () => {
+  const {
+    mutate,
+    isPending,
+    data: tour,
+  } = useMutation({
+    mutationFn: async (destination) => {
+      const newTour = await generateTourResponse(destination);
+      if (newTour) {
+        return newTour;
+      }
+      toast.error("No matching city found....");
+      return null;
+    },
+  });
   const handleSubmit = (e) => {
     // Prevents the default form behavior.
     e.preventDefault();
@@ -13,9 +30,12 @@ const NewTour = () => {
     // Converts the FormData object to an object using Object.fromEntries.
     const destination = Object.fromEntries(formData.entries());
 
-    // Logs the resulting object to the console.
-    console.log(destination);
+    mutate(destination);
   };
+
+  if (isPending) {
+    return <span className="loading loading-lg"></span>;
+  }
 
   return (
     <>
@@ -41,7 +61,7 @@ const NewTour = () => {
           </button>
         </div>
       </form>
-      <TourInfo />
+      {tour ? <TourInfo tour={tour} /> : null}
     </>
   );
 };
