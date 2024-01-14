@@ -2,17 +2,16 @@
 
 - install and setup nextui library
 
-  - npm install @nextui-org/react framer-motion
-  - add that
-    - import { nextui } from '@nextui-org/react'
-    - './node\*modules/@nextui-org/theme/dist/\*\*/\_.{js,ts,jsx,tsx}'
-    - darkMode: "class",
-    - plugins: [nextui()],
-    - providers.tsx ( to app folder )
+  - Go nextui docs
 
-  Auth
+- Auth with github
 
-  - @auth/core@0.18.1 @auth/prisma-adapter@1.0.6 next-auth@5.0.0-beta.3
+  - go to github.com/settings/applications/new
+  - add http://localhost:3000/api/auth/callback/github to Authorization callback URL
+
+- npm install --save-exact ( to install exact same version)
+
+- Path Helpers ( If we wanna change the routes, easy to change in one file)
 
 - Setup and install prisma
 
