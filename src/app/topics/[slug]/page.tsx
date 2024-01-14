@@ -12,7 +12,7 @@ export default function TopicShowPage({ params }: TopicShowPageProps) {
     <div className="flex justify-between">
       <h1 className="font-bold text-2xl mb-2">{slug}</h1>
       <div>
-        <PostCreateForm />
+        <PostCreateForm slug={slug} />
       </div>
     </div>
   );

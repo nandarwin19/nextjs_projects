@@ -12,8 +12,17 @@ import FormButton from "../common/form-button";
 import * as actions from "@/actions";
 import { useFormState } from "react-dom";
 
-export default function PostCreateForm() {
-  const [formState, action] = useFormState(actions.createPost, { errors: {} });
+interface PostCreateFormProps {
+  slug: string;
+}
+
+export default function PostCreateForm({ slug }: PostCreateFormProps) {
+  const [formState, action] = useFormState(
+    actions.createPost.bind(null, slug),
+    { errors: {} }
+  );
+
+  // const action = actions.createPost.bind(null, slug)
   return (
     <Popover placement="left">
       <PopoverTrigger>
@@ -39,6 +48,12 @@ export default function PostCreateForm() {
               labelPlacement="outside"
               placeholder="Content"
             />
+
+            {formState.errors._form ? (
+              <div className="rounded p-2 bg-red-200 border border-red-400">
+                {formState.errors._form.join(", ")}
+              </div>
+            ) : null}
             <FormButton>Save</FormButton>
           </div>
         </form>
