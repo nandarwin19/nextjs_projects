@@ -22,6 +22,8 @@ export default function PostCreateForm({ slug }: PostCreateFormProps) {
     { errors: {} }
   );
 
+  console.log(slug);
+
   // const action = actions.createPost.bind(null, slug)
   return (
     <Popover placement="left">
